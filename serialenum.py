@@ -1,5 +1,6 @@
+import os
+import os.path
 import sys
-import glob
 
 
 def enumerate():
@@ -18,7 +19,11 @@ def enumerate():
             except WindowsError:
                 break
     elif sys.platform == 'linux2':
-        ports = glob.glob('/dev/ttyUSB*')
-        ports = ports + glob.glob('/dev/ttyS*')
+        if os.path.exists('/dev/serial/by-id'):
+            entries = os.listdir('/dev/serial/by-id')
+            dirs = [os.readlink(os.path.join('/dev/serial/by-id', x))
+                    for x in entries]
+            ports.extend([os.path.normpath(os.path.join('/dev/serial/by-id', x))
+                         for x in dirs])
 
     return ports
