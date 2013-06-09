@@ -1,5 +1,7 @@
+from glob import glob
 import os
 import os.path
+from serial import Serial
 import sys
 
 
@@ -25,6 +27,15 @@ def enumerate():
                     for x in entries]
             ports.extend([os.path.normpath(os.path.join('/dev/serial/by-id', x))
                          for x in dirs])
+
+        for dev in glob('/dev/ttyS*'):
+            try:
+                port = Serial(dev)
+            except:
+                pass
+            else:
+                ports.append(dev)
+
     else:
         return None
 

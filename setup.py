@@ -13,7 +13,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "serialenum",
-    version = "0.1",
+    version = "0.2",
     py_modules = ['serialenum'],
     author = "Dan Savilonis",
     author_email = "djs@n-cube.org",
@@ -23,6 +23,7 @@ setup(
     keywords = "serial serial-port",
     long_description = __doc__,
     zip_safe=False,
+    install_requires = "pyserial",
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
