@@ -40,3 +40,10 @@ def enumerate():
         return None
 
     return ports
+
+def script():
+    for port in enumerate():
+        print port
+
+if __name__ == "__main__":
+    script()
