@@ -20,6 +20,13 @@ attempts to provide the best possible methods for each supported platform.
 The `enumerate` method will return a list of serial ports or a blank list, if
 none are found. If serial ports could not be enumerated, it will return `None`.
 
+### Using command line script
+
+Script called serialenum can be used from command line
+
+    serialenum
+
+It prints out all found serial ports, one per line.
 
 ## Supported Platforms
 
