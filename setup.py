@@ -24,6 +24,7 @@ setup(
     long_description = __doc__,
     zip_safe=False,
     install_requires = "pyserial",
+    entry_points = {"console_scripts": ["serialenum = serialenum:script"]},
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
