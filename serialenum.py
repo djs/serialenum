@@ -12,7 +12,10 @@ def enumerate():
         # Iterate through registry because WMI does not show virtual serial ports
         import _winreg
 
-        key = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, r'HARDWARE\DEVICEMAP\SERIALCOMM')
+        try:
+            key = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, r'HARDWARE\DEVICEMAP\SERIALCOMM')
+        except WindowsError:
+            return []
         i = 0
         while True:
             try:
@@ -37,7 +40,7 @@ def enumerate():
                 ports.append(dev)
 
     else:
-        return None
+        return []
 
     return ports
 
