@@ -13,7 +13,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "serialenum",
-    version = "0.2",
+    version = "0.3",
     py_modules = ['serialenum'],
     author = "Dan Savilonis",
     author_email = "djs@n-cube.org",
