@@ -23,7 +23,7 @@ def enumerate():
                 i = i + 1
             except WindowsError:
                 break
-    elif sys.platform == 'linux2':
+    elif sys.platform.startswith('linux'):
         if os.path.exists('/dev/serial/by-id'):
             entries = os.listdir('/dev/serial/by-id')
             dirs = [os.readlink(os.path.join('/dev/serial/by-id', x))
